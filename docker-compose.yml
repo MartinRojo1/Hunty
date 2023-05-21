@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+  api:
+    image: fastapi
+    container_name: ml_API
+    build:
+      context: ./api
+      target: build
+    ports:
+      - "8000:15400"
+   
+    depends_on:
+      - redis
+     
+    
+  redis:
+    image: redis:6.2.6
+
+ 
